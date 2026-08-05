@@ -1,0 +1,922 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shofia Jannatul Ma'rifah - Portofolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            darkMode: 'class', // Mengaktifkan Dark Mode berbasis class           
+            theme: {
+                extend: {
+                    colors: {
+                        navy: '#0f172a',
+                        teal: '#0d9488',
+                        light: '#f8fafc',
+                        darkBg: '#0b1121', // Warna custom untuk background dark mode
+                        darkCard: '#1e293b', // Warna custom untuk card dark mode
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>   
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        body { font-family: 'Inter', sans-serif; }
+
+        /* Animasi Slider 4 Gambar (Total 6 detik = 1.5 detik per gambar, dgn jeda 1 detik diam) */
+        @keyframes slideFour {
+            0%, 16.66% { transform: translateX(0); }
+            25%, 41.66% { transform: translateX(-25%); }
+            50%, 66.66% { transform: translateX(-50%); }
+            75%, 91.66% { transform: translateX(-75%); }
+            100% { transform: translateX(0); }
+        }
+        .animate-slider-4 {
+            animation: slideFour 6s infinite ease-in-out;
+        }
+    </style>   
+</head>
+<body class="bg-light dark:bg-darkBg text-gray-800 dark:text-gray-100 antialiased selection:bg-teal selection:text-white transition-colors duration-300">
+
+    <nav class="fixed w-full bg-white/90 dark:bg-darkBg/90 backdrop-blur-sm z-50 border-b border-gray-200 dark:border-slate-800 shadow-sm transition-colors duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16 items-center">
+                <div class="flex-shrink-0 font-bold text-xl text-navy dark:text-white tracking-tight">
+                    Shofia<span class="text-teal">.JM</span>
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#hero" class="text-gray-600 dark:text-gray-300 hover:text-teal dark:hover:text-teal transition-colors font-medium">Home</a>
+                    <a href="#about" class="text-gray-600 dark:text-gray-300 hover:text-teal dark:hover:text-teal transition-colors font-medium">About</a>
+                    <a href="#experience" class="text-gray-600 dark:text-gray-300 hover:text-teal dark:hover:text-teal transition-colors font-medium">Experience</a>
+                    <a href="#projects" class="text-gray-600 dark:text-gray-300 hover:text-teal dark:hover:text-teal transition-colors font-medium">Projects</a>
+                    <a href="#skills" class="text-gray-600 dark:text-gray-300 hover:text-teal dark:hover:text-teal transition-colors font-medium">Skills</a>
+                    <a href="#contact" class="text-gray-600 dark:text-gray-300 hover:text-teal dark:hover:text-teal transition-colors font-medium">Contact</a>
+                </div>
+                <!-- Mobile menu button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-gray-600 dark:text-gray-300 hover:text-navy dark:hover:text-white focus:outline-none">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white dark:bg-darkCard border-t border-gray-200 dark:border-slate-800 transition-colors duration-300">
+            <a href="#hero" class="block px-4 py-3 text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-slate-700 hover:text-teal">Home</a>
+            <a href="#about" class="block px-4 py-3 text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-slate-700 hover:text-teal">About</a>
+            <a href="#experience" class="block px-4 py-3 text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-slate-700 hover:text-teal">Experience</a>
+            <a href="#projects" class="block px-4 py-3 text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-slate-700 hover:text-teal">Projects</a>
+            <a href="#skills" class="block px-4 py-3 text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-slate-700 hover:text-teal">Skills</a>
+            <a href="#contact" class="block px-4 py-3 text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-slate-700 hover:text-teal">Contact</a>
+        </div>
+    </nav>
+
+    <section id="hero" class="pt-32 pb-20 lg:pt-48 lg:pb-32 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto flex flex-col-reverse lg:flex-row items-center gap-12 relative">
+        <!-- Toggle Dark/Light Mode Icon -->
+        <div class="absolute top-24 lg:top-32 right-4 lg:right-8 z-40">
+            <button id="theme-toggle" class="p-3 rounded-full bg-white dark:bg-darkCard shadow-md border border-gray-200 dark:border-slate-700 transition-all hover:scale-110 focus:outline-none">
+                <i id="theme-icon" class="fas fa-moon text-navy dark:text-yellow-400 text-xl"></i>
+            </button>
+        </div>
+
+        <div class="flex-1 text-center lg:text-left">           
+            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold text-navy dark:text-white leading-tight mb-4 transition-colors">
+                Hi, I'm <span class="text-teal">Shofia Jannatul Ma'rifah</span>
+            </h1>
+            <h2 class="text-xl sm:text-2xl text-gray-600 dark:text-gray-300 font-medium mb-6 transition-colors">
+                Fresh Graduate Biology | Laboratory Analyst and Technician | R&D | Scientific Writer | QC/QA
+            </h2>
+            <p class="text-gray-500 dark:text-gray-400 mb-8 max-w-2xl mx-auto lg:mx-0 text-lg leading-relaxed transition-colors">
+                Lulusan Terbaik Fakultas MIPA dan Terbaik Ketiga Universitas Islam Malang (IPK 3,99). Berpengalaman dalam mikrobiologi, bioteknologi, nanobiologi, bioinformatika dan analisis laboratorium. Berdedikasi untuk memberikan kontribusi nyata secara profesional di bidang penelitian, laboratorium, maupun industri sains.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                <a href="javascript:void(0)" onclick="kirimEmail(event)" class="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-teal hover:bg-teal/90 shadow-md transition-all duration-300 transform hover:-translate-y-1">
+                    Hubungi Saya
+                </a>
+                <a href="https://drive.google.com/file/d/1-8duQ6-MlBZd8i5H5mz3CmQoMVvCzI5c/view?usp=drive_link" target="_blank" class="inline-flex items-center justify-center px-6 py-3 border-2 border-navy dark:border-white text-base font-medium rounded-md text-navy dark:text-white hover:bg-navy hover:text-white dark:hover:bg-white dark:hover:text-navy transition-all duration-300 transform hover:-translate-y-1">
+                    Unduh CV
+                </a>
+            </div>
+            <div class="mt-8 flex justify-center lg:justify-start space-x-6">
+                <a href="javascript:void(0)" onclick="kirimEmail(event)" class="text-gray-400 hover:text-teal text-2xl transition-colors" title="Email"><i class="fas fa-envelope"></i></a>
+                <a href="https://www.linkedin.com/in/shofia-jannatul-ma-rifah-9490a5321" target="_blank" class="text-gray-400 hover:text-[#0A66C2] text-2xl transition-colors" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                <a href="https://www.instagram.com/shofiarfh_" target="_blank" class="text-gray-400 hover:text-[#E1306C] text-2xl transition-colors" title="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="https://scholar.google.com/citations?user=t5_GhAUAAAAJ&hl=id" target="_blank" class="text-gray-400 hover:text-[#4285F4] text-2xl transition-colors" title="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
+                <a href="https://www.researchgate.net/profile/Shofia-Marifah?ev=hdr_xprf" target="_blank" class="text-gray-400 hover:text-[#00CCBB] text-2xl transition-colors" title="ResearchGate"><i class="fab fa-researchgate"></i></a>
+            </div>
+            
+            <!-- Social Proof / Highlights dgn Animasi Berhitung -->
+            <div class="mt-16 pt-8 border-t border-slate-200 dark:border-slate-700 grid grid-cols-2 md:grid-cols-4 gap-4 text-center transition-colors">
+                <a href="https://drive.google.com/file/d/1PIe4V2vonOHTOB-ICD2_eaNPxULm-EIA/view?usp=drive_link" target="_blank" class="block group hover:-translate-y-1 transition-transform duration-300 cursor-pointer">
+                    <p class="text-3xl font-bold text-navy-900 dark:text-white group-hover:text-teal transition-colors">
+                        <span class="counter-value" data-target="3.99" data-float="true">0.00</span>
+                    </p>
+                    <p class="text-xs text-slate-500 dark:text-slate-400 uppercase tracking-wider font-semibold mt-1 group-hover:text-teal transition-colors">IPK S1 Biologi</p>
+                </a>
+                <a href="#projects" class="block group hover:-translate-y-1 transition-transform duration-300 cursor-pointer">
+                    <p class="text-3xl font-bold text-navy-900 dark:text-white group-hover:text-teal transition-colors">
+                        <span class="counter-value" data-target="3" data-suffix="+">0</span>
+                    </p>
+                    <p class="text-xs text-slate-500 dark:text-slate-400 uppercase tracking-wider font-semibold mt-1 group-hover:text-teal transition-colors">Tahun Pendanaan PKM</p>
+                </a>
+                <a href="#publikasi" class="block group hover:-translate-y-1 transition-transform duration-300 cursor-pointer">
+                    <p class="text-3xl font-bold text-navy-900 dark:text-white group-hover:text-teal transition-colors">
+                        <span class="counter-value" data-target="6">0</span>
+                    </p>
+                    <p class="text-xs text-slate-500 dark:text-slate-400 uppercase tracking-wider font-semibold mt-1 group-hover:text-teal transition-colors">Publikasi Ilmiah</p>
+                </a>
+                <a href="https://www.instagram.com/p/Dao722Kku-8/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" target="_blank" class="block group hover:-translate-y-1 transition-transform duration-300 cursor-pointer">
+                    <p class="text-3xl font-bold text-navy-900 dark:text-white"><i class="fa-solid fa-award text-teal-500 group-hover:text-teal-400 transition-colors"></i></p>
+                    <p class="text-xs text-slate-500 dark:text-slate-400 uppercase tracking-wider font-semibold mt-1 group-hover:text-teal transition-colors">Lulusan Terbaik</p>
+                </a>
+            </div>            
+        </div>
+        <div class="flex-1 flex justify-center lg:justify-end relative">
+            <!-- Decorative blob behind image -->
+            <div class="absolute inset-0 bg-teal/20 rounded-full blur-3xl transform scale-90 -z-10"></div>
+            <img src="foto profesional.jpeg" alt="Shofia Jannatul Ma'rifah" class="w-64 h-64 sm:w-80 sm:h-80 lg:w-[400px] lg:h-[400px] object-cover rounded-full border-4 border-white dark:border-slate-800 shadow-2xl z-10 transition-colors" onerror="this.src='https://placehold.co/400x400/0f172a/0d9488?text=Shofia'">
+        </div>
+    </section>
+
+    <section id="about" class="py-20 bg-white dark:bg-darkCard transition-colors duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-navy dark:text-white inline-block relative transition-colors">
+                    Tentang Saya
+                    <span class="absolute bottom-0 left-0 w-full h-1 bg-teal rounded-full transform translate-y-2"></span>
+                </h2>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                <!-- 4 Frame Foto Beranimasi Geser -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 h-full">
+                    <!-- Frame 1 (Besar di Atas) -->
+                    <div class="col-span-1 sm:col-span-2 rounded-2xl overflow-hidden shadow-xl h-65 relative bg-gray-100 dark:bg-slate-700">
+                        <div class="flex w-[400%] h-full animate-slider-4">
+                            <img src="Frame1-1.jpeg" alt="Slide 1" class="w-1/4 h-full object-cover" onerror="this.src='https://placehold.co/600x400/0f172a/white?text=Foto+1'">
+                            <img src="Frame1-2.jpeg" alt="Slide 2" class="w-1/4 h-full object-cover" onerror="this.src='https://placehold.co/600x400/0f172a/white?text=Foto+2'">
+                            <img src="Frame1-3.jpeg" alt="Slide 3" class="w-1/4 h-full object-cover" onerror="this.src='https://placehold.co/600x400/0f172a/white?text=Foto+3'">
+                            <img src="Frame1-4.jpeg" alt="Slide 4" class="w-1/4 h-full object-cover" onerror="this.src='https://placehold.co/600x400/0f172a/white?text=Foto+4'">
+                        </div>
+                    </div>
+                    <!-- Frame 2 (Besar di Atas) -->
+                    <div class="col-span-1 sm:col-span-2 rounded-2xl overflow-hidden shadow-xl h-65 relative bg-gray-100 dark:bg-slate-700">
+                        <div class="flex w-[400%] h-full animate-slider-4">
+                            <img src="Frame2-1.jpeg" alt="Slide 1" class="w-1/4 h-full object-cover" onerror="this.src='https://placehold.co/600x400/0f172a/white?text=Foto+1'">
+                            <img src="Frame2-2.jpeg" alt="Slide 2" class="w-1/4 h-full object-cover" onerror="this.src='https://placehold.co/600x400/0f172a/white?text=Foto+2'">
+                            <img src="Frame2-3.jpeg" alt="Slide 3" class="w-1/4 h-full object-cover" onerror="this.src='https://placehold.co/600x400/0f172a/white?text=Foto+3'">
+                            <img src="Frame2-4.jpeg" alt="Slide 4" class="w-1/4 h-full object-cover" onerror="this.src='https://placehold.co/600x400/0f172a/white?text=Foto+4'">
+                        </div>
+                    </div>
+                    <!-- Frame 3 (Besar di Atas) -->
+                    <div class="col-span-1 sm:col-span-2 rounded-2xl overflow-hidden shadow-xl h-65 relative bg-gray-100 dark:bg-slate-700">
+                        <div class="flex w-[400%] h-full animate-slider-4">
+                            <img src="Frame3-1.jpeg" alt="Slide 1" class="w-1/4 h-full object-cover" onerror="this.src='https://placehold.co/600x400/0f172a/white?text=Foto+1'">
+                            <img src="Frame3-2.jpeg" alt="Slide 2" class="w-1/4 h-full object-cover" onerror="this.src='https://placehold.co/600x400/0f172a/white?text=Foto+2'">
+                            <img src="Frame3-3.jpeg" alt="Slide 3" class="w-1/4 h-full object-cover" onerror="this.src='https://placehold.co/600x400/0f172a/white?text=Foto+3'">
+                            <img src="Frame3-4.jpeg" alt="Slide 4" class="w-1/4 h-full object-cover" onerror="this.src='https://placehold.co/600x400/0f172a/white?text=Foto+4'">
+                        </div>
+                    </div>                                        
+                </div>
+                
+                <div>
+                    <h3 class="text-2xl font-semibold text-navy dark:text-white mb-4 transition-colors">Lulusan Terbaik Ketiga Tingkat Universitas</h3>
+                    <p class="text-gray-600 dark:text-gray-400 mb-6 leading-relaxed transition-colors">
+                        Saya adalah seorang fresh graduate Program Studi Biologi, Fakultas MIPA, Universitas Islam Malang yang lulus dengan ipk 3,99. Saya memiliki minat mendalam pada bidang mikrobiologi, bioteknologi, fitokimia, biokimia, nanobiologi, dan bioinformatika.
+                    </p>
+                    <p class="text-gray-600 dark:text-gray-400 mb-6 leading-relaxed transition-colors">
+                        Selama masa perkuliahan, saya aktif mengembangkan diri tidak hanya di bidang akademik, tetapi juga melalui pengalaman praktis sebagai asisten laboratorium, praktik kerja di instansi pemerintah, keterlibatan dalam penelitian dan konferensi internasional, serta kepemimpinan dalam organisasi kemahasiswaan. Melalui praktik kerja sebagai staff Laboratorium Kesmas di UPT Labkesda Kota Blitar, saya mampu menguasai kompetensi untuk melakukan berbagai uji diantaranya uji fisika/kimia/mikrobiologi air, mikrobiologi/produk tambahan pangan, pemeriksaan swab alat dengan mendapat nilai kinerja sempurna. Komitmen saya terhadap pengembangan riset juga dibuktikan dengan keberhasilan memperoleh pendanaan Program Kreativitas Mahasiswa (PKM) selama tiga tahun berturut-turut dan telah menerbitkan 5 artikel penelitian serta 1 artikel pengabdian pada jurnal terindeks.
+                    </p>
+                    <p class="text-gray-600 dark:text-gray-400 mb-6 leading-relaxed transition-colors">
+                        Berdasarkan latar belakang kepemimpinan organisasi dan pengalaman kerja riset, saya menjadi pribadi profesional yang memiliki keahlian kuat dalam analisis laboratorium, pemecahan masalah (problem solving), serta komunikasi publik. Selain itu, saya juga terbiasa bekerja secara adaptif dan berorientasi pada ketelitian tinggi dalam lingkungan yang multitasking, baik secara mandiri maupun dalam tim.
+                    </p>
+                    <div class="bg-light dark:bg-slate-800 p-6 rounded-xl border border-gray-100 dark:border-slate-700 shadow-sm transition-colors">
+                        <h4 class="font-semibold text-navy dark:text-white mb-2 flex items-center transition-colors"><i class="fas fa-university text-teal mr-2"></i>Pendidikan</h4>
+                        <div class="mb-4">
+                            <p class="font-medium text-gray-800 dark:text-gray-200 transition-colors">
+                                <a href="https://pddikti.kemdiktisaintek.go.id/detail-mahasiswa/b8KIYGRx1HyLi75rIBvcPuMK5jbXXgX1107kgTM4nltKsUoZmHoiz7x59ex0mWhk2B6iMw==" target="_blank" class="hover:text-teal dark:hover:text-teal-400 transition-colors" title="Lihat Profil Mahasiswa di PDDIKTI">
+                                    S1 Biologi - Universitas Islam Malang <i class="fas fa-external-link-alt text-xs ml-1 opacity-70"></i>
+                                </a>
+                            </p>    
+                            <p class="text-sm text-gray-500 dark:text-gray-400 transition-colors">2022 - 2026 | IPK: 3.99</p>
+                        </div>
+                        <h4 class="font-semibold text-navy dark:text-white mb-2 flex items-center transition-colors"><i class="fas fa-newspaper text-teal mr-2"></i>Liputan Media</h4>
+                        <div class="space-y-2">
+                            <a href="https://ketik.com/malang/pendidikan/lulusan-terbaik-iii-wisuda-unisma-2026-shofia-jannatul-marifah-teliti-nanopartikel-besi-ekstrak-delima-sebagai-antibakteri" target="_blank" class="text-sm text-teal dark:text-teal-400 hover:underline block truncate"><i class="fas fa-newspaper mr-2"></i>Ketik.com - Lulusan terbaik 3 UNISMA 2026</a>
+                            <a href="https://timesindonesia.co.id/pendidikan/596278/kisah-mahasiswa-unisma-kuliah-sambil-mondok-lulus-tanpa-skripsi" target="_blank" class="text-sm text-teal dark:text-teal-400 hover:underline block truncate"><i class="fas fa-newspaper mr-2"></i>Times Indonesia - Kisah Kuliah Sambil Mondok</a>
+                            <a href="https://indonesiandaily.com/wisudawan-terbaik-unisma-malang-ciptakan-antibakteri-dari-kulit-durian-raih-ipk-399-dan-bebas-skripsi/" target="_blank" class="text-sm text-teal dark:text-teal-400 hover:underline block truncate"><i class="fas fa-newspaper mr-2"></i>Indonesian Daily - Antibakteri</a>
+                            <a href="https://malang.disway.id/kampus/read/17279/lulusan-terbaik-unisma-curi-perhatian-riset-hukum-keluarga-hingga-nanopartikel-kulit-delima-jadi-sorotan" target="_blank" class="text-sm text-teal dark:text-teal-400 hover:underline block truncate"><i class="fas fa-newspaper mr-2"></i>Malang Disway - Sorotan Riset</a>
+                            <a href="https://timesindonesia.co.id/indonesia-positif/575685/tingkatkan-kesadaran-perawatan-kulit-mahasiswa-ksme-unisma-kenalkan-nanoteknologi-skincare" target="_blank" class="text-sm text-teal dark:text-teal-400 hover:underline block truncate"><i class="fas fa-newspaper mr-2"></i>Times Indonesia - KSME-Skincare Nanopartikel</a>
+                            <a href="https://timesindonesia.co.id/indonesia-positif/494574/lolos-pendanaan-pkm-mahasiswa-biologi-fmipa-unisma-malang-bebas-skripsi" target="_blank" class="text-sm text-teal dark:text-teal-400 hover:underline block truncate"><i class="fas fa-newspaper mr-2"></i>Times Indonesia - Pendanaan PKM RE-2024</a>
+                            <a href="https://radarmalang.jawapos.com/berita-terbaru/815809445/taleta-terbaik-unisma-juri-hafidz-alquran-gema-ramadan-1446-h-sudah-siap" target="_blank" class="text-sm text-teal dark:text-teal-400 hover:underline block truncate"><i class="fas fa-newspaper mr-2"></i>Radar Malang - Juri Tahfidz Gema Ramadan</a>
+                            <a href="https://radarmalang.jawapos.com/kota-malang/2503260026/kenyang-pengalaman-anggota-jqh-unisma-dipilih-jadi-juri-gema-ramadan-1446-h" target="_blank" class="text-sm text-teal dark:text-teal-400 hover:underline block truncate"><i class="fas fa-newspaper mr-2"></i>Radar Malang - Gema Ramadan</a>
+                            <a href="https://timesindonesia.co.id/indonesia-positif/465709/mahasiswa-fapet-dan-fmipa-unisma-malang-riset-animal-welfare-proses-pemotongan-hewan" target="_blank" class="text-sm text-teal dark:text-teal-400 hover:underline block truncate"><i class="fas fa-newspaper mr-2"></i>Times Indonesia - PKM Animal Welfare</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="experience" class="py-20 bg-light dark:bg-darkBg transition-colors duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-navy dark:text-white inline-block relative transition-colors">
+                    Pengalaman Kerja & Organisasi
+                    <span class="absolute bottom-0 left-0 w-full h-1 bg-teal rounded-full transform translate-y-2"></span>
+                </h2>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <!-- Pengalaman Kerja -->
+                <div class="space-y-4">
+                    <h3 class="text-2xl font-semibold text-navy dark:text-white mb-6 flex items-center border-b border-gray-200 dark:border-slate-700 pb-2 transition-colors"><i class="fas fa-briefcase text-teal mr-3"></i>Pengalaman Kerja</h3>
+                    
+                    <!-- Job 1: Asprak Mikroling -->
+                    <div class="bg-white dark:bg-slate-800 rounded-xl shadow-md border border-gray-100 dark:border-slate-700 overflow-hidden group transition-colors">
+                        <button onclick="toggleAccordion('job-1-details')" class="w-full p-6 flex justify-between items-center text-left hover:bg-gray-50 dark:hover:bg-slate-750 transition-all duration-300">
+                            <div>
+                                <h4 class="text-xl font-bold text-navy dark:text-gray-100 group-hover:text-teal dark:group-hover:text-teal-400 transition-colors duration-300">Asisten Praktikum (Mikrobiologi lingkungan), FMIPA UNISMA</h4>
+                                <p class="text-teal font-medium text-sm">Maret-Agustus 2026</p>
+                            </div>
+                            <div class="flex items-center shrink-0 ml-4">
+                                <img src="Logo FMIPA.jpg" alt="Logo FMIPA" class="w-10 h-10 object-contain mr-4 rounded-md bg-white p-0.5 shadow-sm" onerror="this.style.display='none'">
+                                <i class="fas fa-chevron-down text-gray-400 dark:text-gray-500 group-hover:text-teal dark:group-hover:text-teal-400 transition-colors duration-300"></i>
+                            </div>
+                        </button>
+                        <div id="job-1-details" class="hidden px-6 pb-6 pt-2">
+                            <ul class="list-disc list-inside text-gray-600 dark:text-gray-400 space-y-2 text-sm transition-colors">
+                                <li>Mengelola kelas praktikum (24 mahasiswa/kelas) selama 1 semester.</li>
+                                <li>Memaparkan materi, mendemostrasikan metode/teknik, dan mengawasi kegiatan praktikum sesuai tema pertemuan.</li>
+                                <li>Membimbing mahasiswa dalam melaksanakan praktikum, mengerjakan tugas, dan membuat tugas akhir berupa laporan, poster infografis atau artikel ilmiah.</li>
+                                <li>Menyiapkan alat dan bahan yang dibutuhkan sebelum praktikum dilaksanakan.</li>
+                                <li>Menyusun Pre-Test, Post-Test, dan Ujian Akhir Praktikum sesuai tema praktikum.</li>
+                                <li>Memberikan penilaian pada hasil Pre-Test, Post-Test, ujian akhir, tugas akhir dan memberikan umpan balik.</li>
+                                <li>Berkoordinasi dengan dosen pengampu terkait evaluasi pembelajaran.</li>
+                            </ul>
+                            <!-- Animasi Slider 4 Foto -->
+                            <div class="mt-4 rounded-lg overflow-hidden h-56 relative w-full shadow-sm bg-gray-100 dark:bg-slate-700">
+                                <div class="flex w-[400%] h-full animate-slider-4">
+                                    <img src="Asprak Mikroling 1.jpeg" alt="Asisten 1" class="w-1/4 h-full object-cover" onerror="this.src='https://placehold.co/600x300/0f172a/white?text=Asisten+1'">
+                                    <img src="Asprak Mikroling 2.jpeg" alt="Asisten 2" class="w-1/4 h-full object-cover" onerror="this.src='https://placehold.co/600x300/0f172a/white?text=Asisten+2'">
+                                    <img src="Asprak Mikroling 3.jpeg" alt="Asisten 3" class="w-1/4 h-full object-cover" onerror="this.src='https://placehold.co/600x300/0f172a/white?text=Asisten+3'">
+                                    <img src="Asprak Mikroling 4.jpeg" alt="Asisten 4" class="w-1/4 h-full object-cover" onerror="this.src='https://placehold.co/600x300/0f172a/white?text=Asisten+4'">                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Job 2: Labkesda -->
+                    <div class="bg-white dark:bg-slate-800 rounded-xl shadow-md border border-gray-100 dark:border-slate-700 overflow-hidden group transition-colors">
+                        <button onclick="toggleAccordion('job-2-details')" class="w-full p-6 flex justify-between items-center text-left hover:bg-gray-50 dark:hover:bg-slate-750 transition-all duration-300">
+                            <div>
+                                <h4 class="text-xl font-bold text-navy dark:text-gray-100 group-hover:text-teal dark:group-hover:text-teal-400 transition-colors duration-300">Staff Laboratorium Kesehatan Masyarakat, UPT Labkesda Kota Blitar</h4>
+                                <p class="text-teal font-medium text-sm">Feb 2025</p>
+                            </div>
+                            <div class="flex items-center shrink-0 ml-4">
+                                <img src="Logo Dinkes Blitar.jpg" alt="Logo Dinkes" class="w-10 h-10 object-contain mr-4 rounded-md bg-white p-0.5 shadow-sm" onerror="this.style.display='none'">
+                                <i class="fas fa-chevron-down text-gray-400 dark:text-gray-500 group-hover:text-teal dark:group-hover:text-teal-400 transition-colors duration-300"></i>
+                            </div>
+                        </button>
+                        <div id="job-2-details" class="hidden px-6 pb-6 pt-2">
+                            <ul class="list-disc list-inside text-gray-600 dark:text-gray-400 space-y-2 text-sm transition-colors">
+                                <li>Melakukan Uji Mikrobiologi Air Bersih dan Air Minum metode membran filter dan MPN.</li>
+                                <li>Melakukan Uji Fisika Air (bau, suhu, TDS).</li>
+                                <li>Melakukan Uji Kimia Air (Nitrat, Nitrit, Fe, Mn, F, Al, dan pH).</li>
+                                <li>Melakukan Uji Mikrobiologi Makanan dan Tambahan Pangan (Boraks).</li>
+                                <li>Melakukan Pemeriksaan Usap Alat, Dinding, Lantai, dan Makanan dari lokasi jasa boga.</li>
+                                <li>Membuat sekitar 25-50 buah media BPW, NA, PDA, LB, BGLB, LSB-SS, LSB-TS, Tryptone, dan Cromocult serta pelarut PBS sebagai stok media untuk 2 minggu.</li>
+                                <li>Desinfeksi alat-alat laboratorium dan sterilisasi menggunakan autoklaf setiap hari.</li>
+                                <li>Sampling lapangan (SPAM, Depo air minum, PDAM, Jasa Boga, Rumah Sakit) berupa sampel air, makanan, dan swab alat</li>
+                                <li>Bertanggungjawab sebagai Administrasi Pelayanan Laboratorium sesuai jadwal</li>
+                            </ul>
+                            <!-- Animasi Slider 10 Foto -->
+                            <div class="mt-4 rounded-lg overflow-hidden h-56 relative w-full shadow-sm bg-gray-100 dark:bg-slate-700">
+                                <div class="flex w-[400%] h-full animate-slider-4">
+                                    <img src="PKL-1.jpeg" alt="Lab 1" class="w-1/4 h-full object-cover" onerror="this.src='https://placehold.co/600x300/0f172a/white?text=Lab+1'">
+                                    <img src="PKL-2.jpeg" alt="Lab 2" class="w-1/4 h-full object-cover" onerror="this.src='https://placehold.co/600x300/0f172a/white?text=Lab+2'">
+                                    <img src="PKL-3.jpeg" alt="Lab 3" class="w-1/4 h-full object-cover" onerror="this.src='https://placehold.co/600x300/0f172a/white?text=Lab+3'">
+                                    <img src="PKL-4.jpeg" alt="Lab 4" class="w-1/4 h-full object-cover" onerror="this.src='https://placehold.co/600x300/0f172a/white?text=Lab+4'">
+                                    <img src="PKL-5.jpeg" alt="Lab 5" class="w-1/4 h-full object-cover" onerror="this.src='https://placehold.co/600x300/0f172a/white?text=Lab+5'">
+                                    <img src="PKL-6.jpeg" alt="Lab 6" class="w-1/4 h-full object-cover" onerror="this.src='https://placehold.co/600x300/0f172a/white?text=Lab+6'">
+                                    <img src="PKL-7.jpeg" alt="Lab 7" class="w-1/4 h-full object-cover" onerror="this.src='https://placehold.co/600x300/0f172a/white?text=Lab+7'">
+                                    <img src="PKL-8.jpeg" alt="Lab 8" class="w-1/4 h-full object-cover" onerror="this.src='https://placehold.co/600x300/0f172a/white?text=Lab+8'">
+                                    <img src="PKL-9.jpeg" alt="Lab 9" class="w-1/4 h-full object-cover" onerror="this.src='https://placehold.co/600x300/0f172a/white?text=Lab+9'">
+                                    <img src="PKL-10.jpeg" alt="Lab 10" class="w-1/4 h-full object-cover" onerror="this.src='https://placehold.co/600x300/0f172a/white?text=Lab+10'">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Job 3 -->
+                    <div class="bg-white dark:bg-slate-800 rounded-xl shadow-md border border-gray-100 dark:border-slate-700 overflow-hidden group transition-colors">
+                        <button onclick="toggleAccordion('job-3-details')" class="w-full p-6 flex justify-between items-center text-left hover:bg-gray-50 dark:hover:bg-slate-750 transition-all duration-300">
+                            <div>
+                                <h4 class="text-xl font-bold text-navy dark:text-gray-100 group-hover:text-teal dark:group-hover:text-teal-400 transition-colors duration-300">Asisten Praktikum (Kimia Dasar, Kimia Organik, SPT 1), FMIPA UNISMA</h4>
+                                <p class="text-teal font-medium text-sm">2025 - 2026</p>
+                            </div>
+                            <div class="flex items-center shrink-0 ml-4">
+                                <img src="Logo FMIPA.jpg" alt="Logo FMIPA" class="w-10 h-10 object-contain mr-4 rounded-md bg-white p-0.5 shadow-sm" onerror="this.style.display='none'">
+                                <i class="fas fa-chevron-down text-gray-400 dark:text-gray-500 group-hover:text-teal dark:group-hover:text-teal-400 transition-colors duration-300"></i>
+                            </div>
+                        </button>
+                        <div id="job-3-details" class="hidden px-6 pb-6 pt-2">
+                            <ul class="list-disc list-inside text-gray-600 dark:text-gray-400 space-y-2 text-sm transition-colors">
+                                <li>Mengelola kelas praktikum (24 mahasiswa/kelas) selama 1 semester.</li>
+                                <li>Memaparkan materi, mendemostrasikan metode/teknik, dan mengawasi kegiatan praktikum sesuai tema pertemuan.</li>
+                                <li>Membimbing mahasiswa dalam melaksanakan praktikum, mengerjakan tugas, dan membuat tugas akhir berupa laporan, poster infografis atau artikel ilmiah.</li>
+                                <li>Menyiapkan alat dan bahan yang dibutuhkan sebelum praktikum dilaksanakan.</li>
+                                <li>Menyusun Pre-Test, Post-Test, dan Ujian Akhir Praktikum sesuai tema praktikum.</li>
+                                <li>Memberikan penilaian pada hasil Pre-Test, Post-Test, ujian akhir, tugas akhir dan memberikan umpan balik.</li>
+                                <li>Berkoordinasi dengan dosen pengampu terkait evaluasi pembelajaran.</li>
+                            </ul>
+                            <!-- Animasi Slider 4 Foto -->
+                            <div class="mt-4 rounded-lg overflow-hidden h-56 relative w-full shadow-sm bg-gray-100 dark:bg-slate-700">
+                                <div class="flex w-[400%] h-full animate-slider-4">
+                                    <img src="Asprak Kimor.jpeg" alt="Asisten 1" class="w-1/4 h-full object-cover" onerror="this.src='https://placehold.co/600x300/0f172a/white?text=Asisten+1'">
+                                    <img src="Asprak Kimdas2.jpeg" alt="Asisten 2" class="w-1/4 h-full object-cover" onerror="this.src='https://placehold.co/600x300/0f172a/white?text=Asisten+2'">
+                                    <img src="Asprak Kimdas.jpeg" alt="Asisten 3" class="w-1/4 h-full object-cover" onerror="this.src='https://placehold.co/600x300/0f172a/white?text=Asisten+3'">
+                                    <img src="Asprak SPT 1.jpeg" alt="Asisten 4" class="w-1/4 h-full object-cover" onerror="this.src='https://placehold.co/600x300/0f172a/white?text=Asisten+4'">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Job 4 -->
+                    <div class="bg-white dark:bg-slate-800 rounded-xl shadow-md border border-gray-100 dark:border-slate-700 overflow-hidden group transition-colors">
+                        <button onclick="toggleAccordion('job-4-details')" class="w-full p-6 flex justify-between items-center text-left hover:bg-gray-50 dark:hover:bg-slate-750 transition-all duration-300">
+                            <div>
+                                <h4 class="text-xl font-bold text-navy dark:text-gray-100 group-hover:text-teal dark:group-hover:text-teal-400 transition-colors duration-300">Asisten Praktikum (Biologi Sel & Molekul, Biokimia), FMIPA UNISMA</h4>
+                                <p class="text-teal font-medium text-sm">2024 - 2025</p>
+                            </div>
+                            <div class="flex items-center shrink-0 ml-4">
+                                <img src="Logo FMIPA.jpg" alt="Logo FMIPA" class="w-10 h-10 object-contain mr-4 rounded-md bg-white p-0.5 shadow-sm" onerror="this.style.display='none'">
+                                <i class="fas fa-chevron-down text-gray-400 dark:text-gray-500 group-hover:text-teal dark:group-hover:text-teal-400 transition-colors duration-300"></i>
+                            </div>
+                        </button>
+                        <div id="job-4-details" class="hidden px-6 pb-6 pt-2">
+                            <ul class="list-disc list-inside text-gray-600 dark:text-gray-400 space-y-2 text-sm transition-colors">
+                                <li>Mengelola kelas praktikum (24 mahasiswa/kelas) selama 1 semester.</li>
+                                <li>Memaparkan materi, mendemostrasikan metode/teknik, dan mengawasi kegiatan praktikum sesuai tema pertemuan.</li>
+                                <li>Membimbing mahasiswa dalam melaksanakan praktikum, mengerjakan tugas, dan membuat tugas akhir berupa laporan, poster infografis atau artikel ilmiah.</li>
+                                <li>Menyiapkan alat dan bahan yang dibutuhkan sebelum praktikum dilaksanakan.</li>
+                                <li>Menyusun Pre-Test, Post-Test, dan Ujian Akhir Praktikum sesuai tema praktikum.</li>
+                                <li>Memberikan penilaian pada hasil Pre-Test, Post-Test, ujian akhir, tugas akhir dan memberikan umpan balik.</li>
+                                <li>Berkoordinasi dengan dosen pengampu terkait evaluasi pembelajaran.</li>
+                            </ul>
+                            <!-- Animasi Slider 4 Foto -->
+                            <div class="mt-4 rounded-lg overflow-hidden h-56 relative w-full shadow-sm bg-gray-100 dark:bg-slate-700">
+                                <div class="flex w-[400%] h-full animate-slider-4">
+                                    <img src="Asprak Biosel.jpeg" alt="Asisten 1" class="w-1/4 h-full object-cover" onerror="this.src='https://placehold.co/600x300/0f172a/white?text=Asisten+1'">
+                                    <img src="Asprak Biokim.jpeg" alt="Asisten 2" class="w-1/4 h-full object-cover" onerror="this.src='https://placehold.co/600x300/0f172a/white?text=Asisten+2'">
+                                    <img src="Asprak Biosel.jpeg" alt="Asisten 3" class="w-1/4 h-full object-cover" onerror="this.src='https://placehold.co/600x300/0f172a/white?text=Asisten+3'">
+                                    <img src="Asprak Biokim.jpeg" alt="Asisten 4" class="w-1/4 h-full object-cover" onerror="this.src='https://placehold.co/600x300/0f172a/white?text=Asisten+4'">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pengalaman Organisasi -->                 
+                <div class="space-y-4">
+                    <h3 class="text-2xl font-semibold text-navy dark:text-white mb-6 flex items-center border-b border-gray-200 dark:border-slate-700 pb-2 transition-colors"><i class="fas fa-users text-teal mr-3"></i>Pengalaman Organisasi</h3>
+                    
+                    <!-- Org 1: HIMA 2025 -->
+                    <div class="bg-white dark:bg-slate-800 rounded-xl shadow-md border border-gray-100 dark:border-slate-700 overflow-hidden group transition-colors">
+                        <button onclick="toggleAccordion('org-1-details')" class="w-full p-6 flex justify-between items-center text-left hover:bg-gray-50 dark:hover:bg-slate-750 transition-all duration-300">
+                            <div>
+                                <h4 class="text-xl font-bold text-navy dark:text-gray-100 group-hover:text-teal dark:group-hover:text-teal-400 transition-colors duration-300">Ketua Divisi Keilmiahan Himaprodi Biologi UNISMA</h4>
+                                <p class="text-teal font-medium text-sm">2025</p>
+                            </div>
+                            <div class="flex items-center shrink-0 ml-4">
+                                <img src="Logo Himabioo.jpg" alt="Logo Himabio" class="w-10 h-10 object-contain mr-4 rounded-md bg-white p-0.5 shadow-sm" onerror="this.style.display='none'">
+                                <i class="fas fa-chevron-down text-gray-400 dark:text-gray-500 group-hover:text-teal dark:group-hover:text-teal-400 transition-colors duration-300"></i>
+                            </div>
+                        </button>
+                        <div id="org-1-details" class="hidden px-6 pb-6 pt-2">
+                            <ul class="list-disc list-inside text-gray-600 dark:text-gray-400 space-y-2 text-sm transition-colors">
+                                <li>Bertanggung jawab dalam pengembangan budaya riset & akademik, pengoordinasian & pendampingan lomba, serta manajerial & keanggotaan divisi.</li>  
+                                <li>Program Kerja Utama: Biology Event Competition (Nasional), Kuliah Umum (Nasional), Mydas Workshop, dan Study Club.</li>                               
+                            </ul>
+                            <!-- Animasi Slider 8 Foto -->
+                            <div class="mt-4 rounded-lg overflow-hidden h-56 relative w-full shadow-sm bg-gray-100 dark:bg-slate-700">
+                                <div class="flex w-[400%] h-full animate-slider-4">
+                                    <img src="HIMA 2025-1.jpeg" alt="HMP 1" class="w-1/4 h-full object-cover" onerror="this.src='https://placehold.co/600x300/0f172a/white?text=HMP+1'">
+                                    <img src="HIMA 2025-2.jpeg" alt="HMP 2" class="w-1/4 h-full object-cover" onerror="this.src='https://placehold.co/600x300/0f172a/white?text=HMP+2'">
+                                    <img src="HIMA 2025-3.jpeg" alt="HMP 3" class="w-1/4 h-full object-cover" onerror="this.src='https://placehold.co/600x300/0f172a/white?text=HMP+3'">
+                                    <img src="HIMA 2025-4.jpeg" alt="HMP 4" class="w-1/4 h-full object-cover" onerror="this.src='https://placehold.co/600x300/0f172a/white?text=HMP+4'">
+                                    <img src="HIMA 2025-5.jpeg" alt="HMP 5" class="w-1/4 h-full object-cover" onerror="this.src='https://placehold.co/600x300/0f172a/white?text=HMP+5'">
+                                    <img src="HIMA 2025-6.jpeg" alt="HMP 6" class="w-1/4 h-full object-cover" onerror="this.src='https://placehold.co/600x300/0f172a/white?text=HMP+6'">
+                                    <img src="HIMA 2025-7.jpeg" alt="HMP 7" class="w-1/4 h-full object-cover" onerror="this.src='https://placehold.co/600x300/0f172a/white?text=HMP+7'">
+                                    <img src="HIMA 2025-8.jpeg" alt="HMP 8" class="w-1/4 h-full object-cover" onerror="this.src='https://placehold.co/600x300/0f172a/white?text=HMP+8'">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Org 2:JQH 2025 -->
+                    <div class="bg-white dark:bg-slate-800 rounded-xl shadow-md border border-gray-100 dark:border-slate-700 overflow-hidden group transition-colors">
+                        <button onclick="toggleAccordion('org-2-details')" class="w-full p-6 flex justify-between items-center text-left hover:bg-gray-50 dark:hover:bg-slate-750 transition-all duration-300">
+                            <div>
+                                <h4 class="text-xl font-bold text-navy dark:text-gray-100 group-hover:text-teal dark:group-hover:text-teal-400 transition-colors duration-300">Ketua Divisi Kerumahtanggaan UKM JQH UNISMA</h4>
+                                <p class="text-teal font-medium text-sm">2025</p>
+                            </div>
+                            <div class="flex items-center shrink-0 ml-4">
+                                <img src="Logo jqh.jpg" alt="Logo JQH" class="w-10 h-10 object-contain mr-4 rounded-md bg-white p-0.5 shadow-sm" onerror="this.style.display='none'">
+                                <i class="fas fa-chevron-down text-gray-400 dark:text-gray-500 group-hover:text-teal dark:group-hover:text-teal-400 transition-colors duration-300"></i>
+                            </div>
+                        </button>
+                        <div id="org-2-details" class="hidden px-6 pb-6 pt-2">
+                            <ul class="list-disc list-inside text-gray-600 dark:text-gray-400 space-y-2 text-sm transition-colors">
+                                <li>Bertanggung jawab dalam pengelolaan logistik & inventaris, operasional & kesiapan acara, serta koordinasi & sumber daya.</li>
+                                <li>Program Kerja Utama: Pembuatan Baju Dinas Harian Pengurus, Pengelolaan inventaris (cek kelayakan, melengkapi kebutuhan), Kontroling Peminjaman inventaris, Mengkoordinir jadwal jaga dan piket.</li>                                
+                            </ul>
+                            <!-- Animasi Slider 6 Foto -->
+                            <div class="mt-4 rounded-lg overflow-hidden h-56 relative w-full shadow-sm bg-gray-100 dark:bg-slate-700">
+                                <div class="flex w-[400%] h-full animate-slider-4">
+                                    <img src="JQH 2025-1.jpeg" alt="UKM 1" class="w-1/4 h-full object-cover" onerror="this.src='https://placehold.co/600x300/0f172a/white?text=UKM+1'">
+                                    <img src="JQH 2025-2.jpeg" alt="UKM 2" class="w-1/4 h-full object-cover" onerror="this.src='https://placehold.co/600x300/0f172a/white?text=UKM+2'">
+                                    <img src="JQH 2025-3.jpeg" alt="UKM 3" class="w-1/4 h-full object-cover" onerror="this.src='https://placehold.co/600x300/0f172a/white?text=UKM+3'">
+                                    <img src="JQH 2025-4.jpeg" alt="UKM 4" class="w-1/4 h-full object-cover" onerror="this.src='https://placehold.co/600x300/0f172a/white?text=UKM+4'">
+                                    <img src="JQH 2025-5.jpeg" alt="UKM 5" class="w-1/4 h-full object-cover" onerror="this.src='https://placehold.co/600x300/0f172a/white?text=UKM+5'">
+                                    <img src="JQH 2025-6.jpeg" alt="UKM 6" class="w-1/4 h-full object-cover" onerror="this.src='https://placehold.co/600x300/0f172a/white?text=UKM+6'">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Org 3: Mudhifah -->
+                    <div class="bg-white dark:bg-slate-800 rounded-xl shadow-md border border-gray-100 dark:border-slate-700 overflow-hidden group transition-colors">
+                        <button onclick="toggleAccordion('org-3-details')" class="w-full p-6 flex justify-between items-center text-left hover:bg-gray-50 dark:hover:bg-slate-750 transition-all duration-300">
+                            <div>
+                                <h4 class="text-xl font-bold text-navy dark:text-gray-100 group-hover:text-teal dark:group-hover:text-teal-400 transition-colors duration-300">Mudhifah Halaqoh Diniyah bagi Mahasiswa Baru UNISMA</h4>
+                                <p class="text-teal font-medium text-sm">2024</p>
+                            </div>
+                            <div class="flex items-center shrink-0 ml-4">
+                                <img src="Logo Unisma.jpg" alt="Logo UNISMA" class="w-10 h-10 object-contain mr-4 rounded-md bg-white p-0.5 shadow-sm" onerror="this.style.display='none'">
+                                <i class="fas fa-chevron-down text-gray-400 dark:text-gray-500 group-hover:text-teal dark:group-hover:text-teal-400 transition-colors duration-300"></i>
+                            </div>
+                        </button>
+                        <div id="org-3-details" class="hidden px-6 pb-6 pt-2">
+                            <ul class="list-disc list-inside text-gray-600 dark:text-gray-400 space-y-2 text-sm transition-colors">
+                                <li>Bertanggung jawab sebagai mentor dan fasilitator dalam mendampingi, mengarahkan, dan membimbing Mahasiswa Baru selama rangkaian kegiatan Halaqoh Diniyah berlangsung.</li>                                
+                            </ul>
+                            <!-- Animasi Slider 4 Foto -->
+                            <div class="mt-4 rounded-lg overflow-hidden h-56 relative w-full shadow-sm bg-gray-100 dark:bg-slate-700">
+                                <div class="flex w-[400%] h-full animate-slider-4">
+                                    <img src="Mudhifah 1.jpeg" alt="Mudhifah 1" class="w-1/4 h-full object-cover" onerror="this.src='https://placehold.co/600x300/0f172a/white?text=Mudhifah+1'">
+                                    <img src="Mudhifah 2.jpeg" alt="Mudhifah 2" class="w-1/4 h-full object-cover" onerror="this.src='https://placehold.co/600x300/0f172a/white?text=Mudhifah+2'">
+                                    <img src="Mudhifah 1.jpeg" alt="Mudhifah 3" class="w-1/4 h-full object-cover" onerror="this.src='https://placehold.co/600x300/0f172a/white?text=Mudhifah+3'">
+                                    <img src="Mudhifah 2.jpeg" alt="Mudhifah 4" class="w-1/4 h-full object-cover" onerror="this.src='https://placehold.co/600x300/0f172a/white?text=Mudhifah+4'">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Org 4: Lainnya -->
+                    <div class="bg-white dark:bg-slate-800 rounded-xl shadow-md border border-gray-100 dark:border-slate-700 overflow-hidden group transition-colors">
+                        <button onclick="toggleAccordion('org-4-details')" class="w-full p-6 flex justify-between items-center text-left hover:bg-gray-50 dark:hover:bg-slate-750 transition-all duration-300">
+                            <div>
+                                <h4 class="text-xl font-bold text-navy dark:text-gray-100 group-hover:text-teal dark:group-hover:text-teal-400 transition-colors duration-300">Posisi Lainnya</h4>                                
+                            </div>
+                            <div class="flex items-center shrink-0 ml-4">
+                                <i class="fas fa-chevron-down text-gray-400 dark:text-gray-500 group-hover:text-teal dark:group-hover:text-teal-400 transition-colors duration-300"></i>
+                            </div>
+                        </button>
+                        <div id="org-4-details" class="hidden px-6 pb-6 pt-2">
+                            <ul class="list-disc list-inside text-gray-600 dark:text-gray-400 space-y-2 text-sm transition-colors">
+                                <li>Wakil Ketua Bidang Tahfidz UKM JQH UNISMA (2024)</li>
+                                <li>Anggota Divisi Keilmiahan Himaprodi Biologi UNISMA (2024)</li>                                
+                            </ul>
+                            <!-- Animasi Slider 8 Foto -->
+                            <div class="mt-4 rounded-lg overflow-hidden h-56 relative w-full shadow-sm bg-gray-100 dark:bg-slate-700">
+                                <div class="flex w-[400%] h-full animate-slider-4">
+                                    <img src="HIMA 2024-1.jpeg" alt="Lainnya 1" class="w-1/4 h-full object-cover" onerror="this.src='https://placehold.co/600x300/0f172a/white?text=Posisi+Lain+1'">
+                                    <img src="JQH 2024-1.jpeg" alt="Lainnya 2" class="w-1/4 h-full object-cover" onerror="this.src='https://placehold.co/600x300/0f172a/white?text=Posisi+Lain+2'">
+                                    <img src="HIMA 2024-2.jpeg" alt="Lainnya 3" class="w-1/4 h-full object-cover" onerror="this.src='https://placehold.co/600x300/0f172a/white?text=Posisi+Lain+3'">
+                                    <img src="JQH 2024-4.jpeg" alt="Lainnya 4" class="w-1/4 h-full object-cover" onerror="this.src='https://placehold.co/600x300/0f172a/white?text=Posisi+Lain+4'">
+                                    <img src="HIMA 2024-3.jpeg" alt="Lainnya 5" class="w-1/4 h-full object-cover" onerror="this.src='https://placehold.co/600x300/0f172a/white?text=Posisi+Lain+1'">
+                                    <img src="JQH 2024-3.jpeg" alt="Lainnya 6" class="w-1/4 h-full object-cover" onerror="this.src='https://placehold.co/600x300/0f172a/white?text=Posisi+Lain+2'">
+                                    <img src="HIMA 2024-4.jpeg" alt="Lainnya 7" class="w-1/4 h-full object-cover" onerror="this.src='https://placehold.co/600x300/0f172a/white?text=Posisi+Lain+3'">
+                                    <img src="JQH 2024-2.jpeg" alt="Lainnya 8" class="w-1/4 h-full object-cover" onerror="this.src='https://placehold.co/600x300/0f172a/white?text=Posisi+Lain+4'">
+                                </div>
+                            </div>
+                        </div>
+                    </div> 
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="py-20 bg-white dark:bg-darkCard transition-colors duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-navy dark:text-white inline-block relative transition-colors">
+                    Penelitian & Publikasi
+                    <span class="absolute bottom-0 left-0 w-full h-1 bg-teal rounded-full transform translate-y-2"></span>
+                </h2>
+            </div>
+
+            <!-- Highlights Projects dgn Slider -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+                <!-- Project Card 1 -->
+                <div class="bg-light dark:bg-slate-800 rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 border border-gray-100 dark:border-slate-700 flex flex-col h-full">
+                    <div class="h-48 bg-navy dark:bg-slate-900 relative overflow-hidden">
+                        <div class="flex w-[400%] h-full animate-slider-4">
+                            <img src="PKM 2024.jpg" alt="PKM 1" class="w-1/4 h-full object-cover" onerror="this.src='https://placehold.co/600x300/0f172a/white?text=Riset+Ketua+1'">
+                            <img src="PKM 2024-1.jpg" alt="PKM 2" class="w-1/4 h-full object-cover" onerror="this.src='https://placehold.co/600x300/0f172a/white?text=Riset+Ketua+2'">
+                            <img src="PKM 2024-2.jpg" alt="PKM 3" class="w-1/4 h-full object-cover" onerror="this.src='https://placehold.co/600x300/0f172a/white?text=Riset+Ketua+3'">
+                            <img src="PKM 2024-3.jpg" alt="PKM 4" class="w-1/4 h-full object-cover" onerror="this.src='https://placehold.co/600x300/0f172a/white?text=Riset+Ketua+4'">
+                            <img src="PKM 2024-4.jpg" alt="PKM 5" class="w-1/4 h-full object-cover" onerror="this.src='https://placehold.co/600x300/0f172a/white?text=Riset+Ketua+5'">
+                            <img src="PKM 2024-5.jpg" alt="PKM 6" class="w-1/4 h-full object-cover" onerror="this.src='https://placehold.co/600x300/0f172a/white?text=Riset+Ketua+6'">
+                        </div>
+                        <div class="absolute top-4 right-4 bg-teal text-white text-xs font-bold px-2 py-1 rounded z-10">2024</div>
+                    </div>
+                    <div class="p-6 flex-grow flex flex-col">
+                        <h3 class="font-bold text-xl text-navy dark:text-white mb-2 transition-colors">PKM-RE (Ketua Tim)</h3>
+                        <p class="text-sm text-teal dark:text-teal-400 font-medium mb-3 transition-colors">Pendanaan Nasional Belmawa-Dikti</p>
+                        <p class="text-gray-600 dark:text-gray-400 text-sm flex-grow transition-colors">
+                            "Inovasi Antibakteri Nanopartikel Besi Ekstrak Kulit Buah Delima (Punica granatum L.) Secara In Vitro." 
+                            Analisis UV-Vis & FTIR mengonfirmasi nanopartikel besi. Terbukti memiliki aktivitas antibakteri yang lebih baik.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Project Card 2 -->
+                <div class="bg-light dark:bg-slate-800 rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 border border-gray-100 dark:border-slate-700 flex flex-col h-full">
+                    <div class="h-48 bg-navy dark:bg-slate-900 relative overflow-hidden">
+                        <div class="flex w-[400%] h-full animate-slider-4" style="animation-delay: -1s;">
+                            <img src="Presentator.jpeg" alt="Pres 1" class="w-1/4 h-full object-cover opacity-80" onerror="this.src='https://placehold.co/600x300/0f172a/white?text=Presentator+1'">
+                            <img src="Presentator2.jpeg" alt="Pres 2" class="w-1/4 h-full object-cover opacity-80" onerror="this.src='https://placehold.co/600x300/0f172a/white?text=Presentator+2'">
+                            <img src="Presentator3.jpeg" alt="Pres 3" class="w-1/4 h-full object-cover opacity-80" onerror="this.src='https://placehold.co/600x300/0f172a/white?text=Presentator+3'">                           
+                        </div>
+                         <div class="absolute top-4 right-4 bg-teal text-white text-xs font-bold px-2 py-1 rounded z-10">2024</div>                                           
+                    </div>
+                    <div class="p-6 flex-grow flex flex-col">
+                        <h3 class="font-bold text-xl text-navy dark:text-white mb-2 transition-colors">Presentator Internasional</h3>
+                        <p class="text-sm text-teal dark:text-teal-400 font-medium mb-2 transition-colors">The 9th Indonesia Biotechnology Conference</p>
+                        <p class="text-gray-600 dark:text-gray-400 text-sm flex-grow transition-colors">
+                            Mempresentasikan artikel "Antibacterial Innovation of Iron Nanoparticles from Pomegranate Peel Extract (Punica granatum L.): an In Vitro Study".
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Project Card 3 -->
+                 <div class="bg-light dark:bg-slate-800 rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 border border-gray-100 dark:border-slate-700 flex flex-col h-full">
+                    <div class="h-48 bg-navy dark:bg-slate-900 relative overflow-hidden">
+                        <div class="flex w-[400%] h-full animate-slider-4" style="animation-delay: -2s;">
+                            <img src="PKM AI.jpg" alt="AI 1" class="w-1/4 h-full object-cover" onerror="this.src='https://placehold.co/600x300/0f172a/white?text=PKM-AI+1'">
+                            <img src="PKM AI-1.jpg" alt="AI 2" class="w-1/4 h-full object-cover" onerror="this.src='https://placehold.co/600x300/0f172a/white?text=PKM-AI+2'">
+                            <img src="PKM AI-2.jpg" alt="AI 3" class="w-1/4 h-full object-cover" onerror="this.src='https://placehold.co/600x300/0f172a/white?text=PKM-AI+3'">
+                            <img src="PKM AI-3.jpg" alt="AI 4" class="w-1/4 h-full object-cover" onerror="this.src='https://placehold.co/600x300/0f172a/white?text=PKM-AI+4'">
+                        </div>
+                        <div class="absolute top-4 right-4 bg-teal text-white text-xs font-bold px-2 py-1 rounded z-10">2025</div>
+                    </div>
+                    <div class="p-6 flex-grow flex flex-col">
+                        <h3 class="font-bold text-xl text-navy dark:text-white mb-2 transition-colors">Insentif PKM-AI</h3>
+                        <p class="text-sm text-teal dark:text-teal-400 font-medium mb-3 transition-colors">Kemdiktisaintek</p>
+                        <p class="text-gray-600 dark:text-gray-400 text-sm flex-grow transition-colors">
+                            Artikel Ilmiah: "Profil Metabolit Sekunder Kulit Delima (Punica granatum L.) dan Potensinya Sebagai Kandidat Antikanker Payudara Melalui Analisis In Silico".
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Project Card 4 -->
+                 <div class="bg-light dark:bg-slate-800 rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 border border-gray-100 dark:border-slate-700 flex flex-col h-full">
+                    <div class="h-48 bg-navy dark:bg-slate-900 relative overflow-hidden">
+                        <div class="flex w-[400%] h-full animate-slider-4" style="animation-delay: -3s;">
+                            <img src="PKM 2023.jpg" alt="Anggota 1" class="w-1/4 h-full object-cover" onerror="this.src='https://placehold.co/600x300/0f172a/white?text=Riset+Anggota+1'">
+                            <img src="PKM 2023-1.jpg" alt="Anggota 2" class="w-1/4 h-full object-cover" onerror="this.src='https://placehold.co/600x300/0f172a/white?text=Riset+Anggota+2'">
+                            <img src="PKM 2023-2.jpg" alt="Anggota 3" class="w-1/4 h-full object-cover" onerror="this.src='https://placehold.co/600x300/0f172a/white?text=Riset+Anggota+3'">
+                            <img src="PKM 2023-3.jpg" alt="Anggota 4" class="w-1/4 h-full object-cover" onerror="this.src='https://placehold.co/600x300/0f172a/white?text=Riset+Anggota+4'">
+                        </div>
+                        <div class="absolute top-4 right-4 bg-teal text-white text-xs font-bold px-2 py-1 rounded z-10">2023</div>
+                    </div>
+                    <div class="p-6 flex-grow flex flex-col">
+                        <h3 class="font-bold text-xl text-navy dark:text-white mb-2 transition-colors">PKM-RE (Anggota Tim)</h3>
+                        <p class="text-sm text-teal dark:text-teal-400 font-medium mb-3 transition-colors">Pendanaan Kemdikbudristek (Belmawa-Dikti)</p>
+                        <p class="text-gray-600 dark:text-gray-400 text-sm flex-grow transition-colors">
+                            "Profil Molekul Stres Sebagai Respon Stres Pemotongan Sapi di Rumah Potong Hewan Kajian Animal Welfare Sebagai Upaya Profilaksis Rudapaksa Ternak". Hasil riset menunjukkan perlakuan pemotongan di RPH Kota Malang memicu stres pada ternak sapi, ditandai dengan tingginya hormon kortisol & MDA, serta penurunan SOD.
+                        </p>    
+                    </div>
+                </div>
+            </div>
+
+            <!-- List of Publications -->
+            <div id="publikasi" class="bg-light dark:bg-slate-800 rounded-2xl p-8 border border-gray-100 dark:border-slate-700 shadow-sm scroll-mt-24 transition-colors">
+                <h3 class="text-2xl font-bold text-navy dark:text-white mb-6 flex items-center transition-colors"><i class="fas fa-book-open text-teal mr-3"></i>Daftar Publikasi Ilmiah</h3>
+                <ul class="space-y-5">
+                    <li class="flex items-start group">
+                        <span class="text-teal mt-1 mr-3 shrink-0"><i class="fas fa-check-circle"></i></span>
+                        <a href="https://doi.org/10.14421/biomedich.2026.151.245-252" target="_blank" class="hover:text-teal dark:hover:text-teal-400 transition-colors block text-gray-700 dark:text-gray-300 text-sm sm:text-base">
+                            (2026). Antibacterial Innovation of Iron Nanoparticles from Pomegranate Peel Extract (Punica granatum L.): an In Vitro Study. <i>Biology, Medicine, & Natural Product Chemistry</i>, 15(1), 245-252.
+                        </a>
+                    </li>
+                    <li class="flex items-start group">
+                        <span class="text-teal mt-1 mr-3 shrink-0"><i class="fas fa-check-circle"></i></span>
+                        <a href="https://doi.org/10.21776/ub.jsmartech.2025.006.02.07" target="_blank" class="hover:text-teal dark:hover:text-teal-400 transition-colors block text-gray-700 dark:text-gray-300 text-sm sm:text-base">
+                            (2025). Characterization and Identification of Phytochemical Compounds Soursop Leaf Extract (Annona muricata L.). <i>JSMARTech: Journal of Smart Bioprospecting and Technology</i>, 6(2), 7-14.
+                        </a>
+                    </li>
+                    <li class="flex items-start group">
+                        <span class="text-teal mt-1 mr-3 shrink-0"><i class="fas fa-check-circle"></i></span>
+                        <a href="https://doi.org/10.29407/jbp.v12i2.25867" target="_blank" class="hover:text-teal dark:hover:text-teal-400 transition-colors block text-gray-700 dark:text-gray-300 text-sm sm:text-base">
+                            (2025). Pengaruh Gas Etilen Tomat (Solanum lycopersicum) terhadap Pertumbuhan Tanaman Kacang Hijau (Vigna radiata L.). <i>Jurnal Biologi dan Pembelajarannya (JB&P)</i>, 12(2), 252-258.
+                        </a>
+                    </li>
+                    <li class="flex items-start group">
+                        <span class="text-teal mt-1 mr-3 shrink-0"><i class="fas fa-check-circle"></i></span>
+                        <a href="https://doi.org/10.35334/bjbe.v6i2.5585" target="_blank" class="hover:text-teal dark:hover:text-teal-400 transition-colors block text-gray-700 dark:text-gray-300 text-sm sm:text-base">
+                            (2024). Analisis Aktivitas Antioksidan pada Ekstrak Jagung Muda (Zea mays L.) dengan menggunakan Metode DPPH. <i>Borneo Journal of Biology Education (BJBE)</i>, 6(2), 94-101.
+                        </a>
+                    </li>
+                     <li class="flex items-start group">
+                        <span class="text-teal mt-1 mr-3 shrink-0"><i class="fas fa-check-circle"></i></span>
+                        <a href="https://new-conference.unisma.ac.id/index.php/KOPEMAS/article/view/1422" target="_blank" class="hover:text-teal dark:hover:text-teal-400 transition-colors block text-gray-700 dark:text-gray-300 text-sm sm:text-base">
+                            (2024). Sosialisasi dan Edukasi: Pencegahan dan Pengendalian Penyakit Skabies pada MTS Bustanul Ulum Kec. Pakisaji, Malang. <i>Konferensi Nasional Pengabdian Masyarakat (KOPEMAS)</i>, 5(1).
+                        </a>
+                    </li>
+                     <li class="flex items-start group">
+                        <span class="text-teal mt-1 mr-3 shrink-0"><i class="fas fa-check-circle"></i></span>
+                        <a href="https://doi.org/10.21067/jsp.v11i2.9258" target="_blank" class="hover:text-teal dark:hover:text-teal-400 transition-colors block text-gray-700 dark:text-gray-300 text-sm sm:text-base">
+                            (2023). Kajian Animal Welfare Pemotongan Sapi di Rumah Potong Hewan melalui Profil Molekul Stres. <i>Jurnal Sains Peternakan</i>, 11(2), 103-110.
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills" class="py-20 bg-navy dark:bg-slate-900 text-white transition-colors duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold inline-block relative text-white">
+                    Keahlian & Sertifikasi
+                    <span class="absolute bottom-0 left-0 w-full h-1 bg-teal rounded-full transform translate-y-2"></span>
+                </h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+                <!-- Hard Skills -->
+                <div class="bg-white/5 p-8 rounded-2xl border border-white/10 backdrop-blur-sm">
+                    <div class="w-12 h-12 bg-teal rounded-lg flex items-center justify-center mb-6">
+                        <i class="fas fa-flask text-2xl text-white"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">Laboratorium & Riset</h3>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1 bg-white/10 rounded-full text-sm">Mikrobiologi</span>
+                        <span class="px-3 py-1 bg-white/10 rounded-full text-sm">Bioteknologi</span>
+                        <span class="px-3 py-1 bg-white/10 rounded-full text-sm">Fitokimia</span>
+                        <span class="px-3 py-1 bg-white/10 rounded-full text-sm">Biokimia</span>
+                        <span class="px-3 py-1 bg-white/10 rounded-full text-sm">Uji Antibakteri</span>
+                        <span class="px-3 py-1 bg-white/10 rounded-full text-sm">Analisis Data</span>
+                    </div>
+                </div>
+
+                <!-- Software -->
+                <div class="bg-white/5 p-8 rounded-2xl border border-white/10 backdrop-blur-sm">
+                    <div class="w-12 h-12 bg-teal rounded-lg flex items-center justify-center mb-6">
+                        <i class="fas fa-laptop-code text-2xl text-white"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">Software & Tools</h3>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="flex items-center px-4 py-2 bg-white/10 hover:bg-white/20 border border-white/10 rounded-xl text-sm font-medium transition-all duration-300 shadow-sm cursor-default">
+                            <img src="https://cdn.lo4d.com/t/icon/128/past.png" alt="Past" class="w-5 h-5 mr-2 object-contain bg-white rounded flex-shrink-0 p-0.5" onerror="this.outerHTML='<i class=\'fas fa-chart-line text-white mr-2 text-lg\'></i>'">
+                            Past4.03</span>
+                        <span class="flex items-center px-4 py-2 bg-white/10 hover:bg-white/20 border border-white/10 rounded-xl text-sm font-medium transition-all duration-300 shadow-sm cursor-default">
+                            <img src="https://img.informer.com/icons/png/128/6146/6146141.png" alt="Biovia" class="w-5 h-5 mr-2 object-contain bg-white rounded flex-shrink-0 p-0.5" onerror="this.outerHTML='<i class=\'fas fa-dna text-white mr-2 text-lg\'></i>'">
+                            Biovia</span>    
+                        <span class="flex items-center px-4 py-2 bg-white/10 hover:bg-white/20 border border-white/10 rounded-xl text-sm font-medium transition-all duration-300 shadow-sm cursor-default">
+                            <img src="https://d112y698adiu2z.cloudfront.net/photos/production/software_photos/000/077/042/datas/gallery.jpg" alt="PyRx" class="w-5 h-5 mr-2 object-contain rounded" onerror="this.outerHTML='<i class=\'fab fa-python text-yellow-400 mr-2 text-lg\'></i>'">
+                            PyRx</span>
+                        <span class="flex items-center px-4 py-2 bg-white/10 hover:bg-white/20 border border-white/10 rounded-xl text-sm font-medium transition-all duration-300 shadow-sm cursor-default">
+                            <img src="https://imagej.net/media/icons/imagej2.png" alt="ImageJ" class="w-5 h-5 mr-2 object-contain" onerror="this.outerHTML='<i class=\'fas fa-microscope text-gray-200 mr-2 text-lg\'></i>'">
+                            ImageJ</span>
+                        <span class="flex items-center px-4 py-2 bg-white/10 hover:bg-white/20 border border-white/10 rounded-xl text-sm font-medium transition-all duration-300 shadow-sm cursor-default">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/f/fd/Microsoft_Office_Word_%282019%E2%80%93present%29.svg" alt="Word" class="w-5 h-5 mr-2 object-contain" onerror="this.outerHTML='<i class=\'fas fa-file-word text-blue-500 mr-2 text-lg\'></i>'">
+                            Ms. Word</span>
+                        <span class="flex items-center px-4 py-2 bg-white/10 hover:bg-white/20 border border-white/10 rounded-xl text-sm font-medium transition-all duration-300 shadow-sm cursor-default">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/3/34/Microsoft_Office_Excel_%282019%E2%80%93present%29.svg" alt="Excel" class="w-5 h-5 mr-2 object-contain" onerror="this.outerHTML='<i class=\'fas fa-file-excel text-green-500 mr-2 text-lg\'></i>'">
+                            Ms. Excel</span>
+                        <span class="flex items-center px-4 py-2 bg-white/10 hover:bg-white/20 border border-white/10 rounded-xl text-sm font-medium transition-all duration-300 shadow-sm cursor-default">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/0/0d/Microsoft_Office_PowerPoint_%282019%E2%80%93present%29.svg" alt="PowerPoint" class="w-5 h-5 mr-2 object-contain" onerror="this.outerHTML='<i class=\'fas fa-file-powerpoint text-orange-500 mr-2 text-lg\'></i>'">
+                            Ms. PowerPoint</span>
+                        <span class="flex items-center px-4 py-2 bg-white/10 hover:bg-white/20 border border-white/10 rounded-xl text-sm font-medium transition-all duration-300 shadow-sm cursor-default">
+                            <img src="https://freelogopng.com/images/all_img/1656733637logo-canva-png.png" alt="Canva" class="w-5 h-5 mr-2 object-contain" onerror="this.outerHTML='<i class=\'fas fa-object-group text-[#00C4CC] mr-2 text-lg\'></i>'">
+                            Canva</span>
+                        <span class="flex items-center px-4 py-2 bg-white/10 hover:bg-white/20 border border-white/10 rounded-xl text-sm font-medium transition-all duration-300 shadow-sm cursor-default">
+                            <img src="https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/capcut-icon.svg" alt="CapCut" class="w-5 h-5 mr-2 object-contain bg-white rounded flex-shrink-0 p-0.5" onerror="this.outerHTML='<i class=\'fas fa-video text-white mr-2 text-lg\'></i>'">
+                            CapCut</span>
+                        <span class="flex items-center px-4 py-2 bg-white/10 hover:bg-white/20 border border-white/10 rounded-xl text-sm font-medium transition-all duration-300 shadow-sm cursor-default">
+                            <img src="https://www.albinoblacksheep.com/download/icon/paint.net.png" alt="Paint.net" class="w-5 h-5 mr-2 object-contain bg-white rounded flex-shrink-0 p-0.5" onerror="this.outerHTML='<i class=\'fas fa-paint-brush text-white mr-2 text-lg\'></i>'">
+                            Paint.net</span>
+                        <span class="flex items-center px-4 py-2 bg-white/10 hover:bg-white/20 border border-white/10 rounded-xl text-sm font-medium transition-all duration-300 shadow-sm cursor-default">
+                            <img src="https://static.vecteezy.com/system/resources/previews/016/833/872/non_2x/github-logo-git-hub-icon-on-white-background-free-vector.jpg" alt="Github" class="w-5 h-5 mr-2 object-contain bg-white rounded flex-shrink-0 p-0.5" onerror="this.outerHTML='<i class=\'fab fa-github text-white mr-2 text-lg\'></i>'">
+                            Github</span>                       
+                    </div>
+                </div>
+
+                <!-- Soft Skills & Certs -->
+                <div class="bg-white/5 p-8 rounded-2xl border border-white/10 backdrop-blur-sm">
+                    <div class="w-12 h-12 bg-teal rounded-lg flex items-center justify-center mb-6">
+                        <i class="fas fa-award text-2xl text-white"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">Sertifikasi & Soft Skills</h3>
+                    <ul class="space-y-3 mb-6">
+                        <li class="flex items-center text-sm">
+                            <i class="fas fa-certificate text-teal mr-2"></i> Microsoft Office Specialist (918)
+                        </li>
+                        <li class="flex items-center text-sm">
+                            <i class="fas fa-certificate text-teal mr-2"></i> Test of English Proficiency (480)
+                        </li>
+                    </ul>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1 bg-teal/20 text-white border border-teal/30 rounded-full text-sm">High accuracy</span>
+                        <span class="px-3 py-1 bg-teal/20 text-white border border-teal/30 rounded-full text-sm">Leadership</span>
+                        <span class="px-3 py-1 bg-teal/20 text-white border border-teal/30 rounded-full text-sm">Problem Solving</span>
+                        <span class="px-3 py-1 bg-teal/20 text-white border border-teal/30 rounded-full text-sm">Teamwork</span>
+                        <span class="px-3 py-1 bg-teal/20 text-white border border-teal/30 rounded-full text-sm">Public Speaking</span>
+                        <span class="px-3 py-1 bg-teal/20 text-white border border-teal/30 rounded-full text-sm">Adaptability</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="py-20 bg-light dark:bg-darkBg transition-colors duration-300">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-white dark:bg-slate-800 rounded-3xl shadow-xl overflow-hidden flex flex-col md:flex-row transition-colors">
+                <!-- Contact Info -->
+                <div class="bg-navy dark:bg-slate-900 p-10 md:w-2/5 text-white flex flex-col justify-between relative overflow-hidden transition-colors">
+                    <div class="absolute top-0 right-0 -mr-16 -mt-16 w-48 h-48 bg-teal rounded-full opacity-20 blur-2xl"></div>
+                    <div class="absolute bottom-0 left-0 -ml-16 -mb-16 w-32 h-32 bg-teal rounded-full opacity-20 blur-2xl"></div>
+                    
+                    <div class="relative z-10">
+                        <h3 class="text-3xl font-bold mb-2">Mari Terhubung</h3>
+                        <p class="text-gray-300 mb-8 text-sm">Tertarik untuk berkolaborasi atau mendiskusikan peluang karir? Jangan ragu untuk menghubungi saya.</p>
+                        
+                        <div class="space-y-6">
+                            <div class="flex items-center">
+                                <div class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center mr-4 shrink-0">
+                                    <i class="fas fa-envelope text-teal"></i>
+                                </div>
+                                <a href="javascript:void(0)" onclick="kirimEmail(event)" class="text-sm hover:text-teal transition-colors break-all">shofiajannatul@gmail.com</a>
+                            </div>
+                            <div class="flex items-center group">
+                                <div class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center mr-4 shrink-0 group-hover:bg-[#25D366] transition-colors">
+                                    <i class="fab fa-whatsapp text-teal group-hover:text-white transition-colors"></i>
+                                </div>
+                                <a href="https://wa.me/6281334404118" target="_blank" class="text-sm hover:text-[#25D366] transition-colors">(Chat via WA)</a>
+                            </div>
+                            <div class="flex items-center">
+                                <div class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center mr-4 shrink-0">
+                                    <i class="fas fa-map-marker-alt text-teal"></i>
+                                </div>
+                                <span class="text-sm">Malang, Jawa Timur</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Simple Form Mockup -> WhatsApp -->
+                <div class="p-10 md:w-3/5">
+                    <h3 class="text-2xl font-bold text-navy dark:text-white mb-6 transition-colors">Kirim Pesan</h3>
+                    <form class="space-y-4" onsubmit="kirimPesanWA(event)">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1 transition-colors">Nama Lengkap</label>
+                            <input type="text" id="nama-pengirim" class="w-full px-4 py-2 border border-gray-300 dark:border-slate-600 rounded-lg bg-white dark:bg-slate-700 text-gray-800 dark:text-gray-100 focus:ring-2 focus:ring-teal focus:border-teal outline-none transition-all" placeholder="Nama Lengkap Anda/Perusahaan" required>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1 transition-colors">Email</label>
+                            <input type="email" id="email-pengirim" class="w-full px-4 py-2 border border-gray-300 dark:border-slate-600 rounded-lg bg-white dark:bg-slate-700 text-gray-800 dark:text-gray-100 focus:ring-2 focus:ring-teal focus:border-teal outline-none transition-all" placeholder="email.anda@example.com" required>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1 transition-colors">Pesan</label>
+                            <textarea id="pesan-pengirim" rows="4" class="w-full px-4 py-2 border border-gray-300 dark:border-slate-600 rounded-lg bg-white dark:bg-slate-700 text-gray-800 dark:text-gray-100 focus:ring-2 focus:ring-teal focus:border-teal outline-none transition-all resize-none" placeholder="Tulis pesan Anda...(misal: Saya telah mengirim pesan email)" required></textarea>
+                        </div>
+                        <button type="submit" class="w-full bg-teal hover:bg-teal/90 text-white font-medium py-3 rounded-lg transition-colors shadow-md flex justify-center items-center">
+                            <i class="fab fa-whatsapp mr-2 text-xl"></i> Kirim via WhatsApp
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-navy dark:bg-slate-950 py-8 text-center border-t border-white/10 transition-colors duration-300">
+        <p class="text-gray-400 text-sm">
+            &copy; 2026 Shofia Jannatul Ma'rifah. All rights reserved.
+        </p>
+    </footer>
+
+    <script>
+        // Logika Pengiriman Email Smart Button (HP vs Laptop)
+        function kirimEmail(event) {
+            event.preventDefault();
+            const email = "shofiajannatul@gmail.com";
+            const subject = "Halo Shofia, saya ingin berkolaborasi";
+            
+            const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+            
+            if (isMobile) {
+                const mobile = `mailto:shofiajannatul@gmail.com?view=cm&fs=1&to=${email}&su=${encodeURIComponent(subject)}`; 
+                window.open(mobile, '_blank');               
+            } else {
+                const webUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${email}&su=${encodeURIComponent(subject)}`;
+                window.open(webUrl, '_blank');
+            }
+        }
+
+        // Logika Pengiriman Pesan Form ke WhatsApp
+        function kirimPesanWA(event) {
+            event.preventDefault();
+            const nama = document.getElementById('nama-pengirim').value;
+            const email = document.getElementById('email-pengirim').value;
+            const pesan = document.getElementById('pesan-pengirim').value;
+            const noWA = "6281334404118";
+            const teksWA = `Halo Shofia, perkenalkan saya *${nama}*.%0A%0A*Email:* ${email}%0A*Pesan:*%0A${pesan}`;
+            window.open(`https://wa.me/${noWA}?text=${teksWA}`, '_blank');
+        }
+
+        // Logika Buka/Tutup Accordion Pengalaman
+        function toggleAccordion(id) {
+            const el = document.getElementById(id);
+            el.classList.toggle('hidden');
+        }
+
+        // Logika Mobile Menu
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileLinks = mobileMenu.querySelectorAll('a');
+
+        if (mobileMenuBtn && mobileMenu) {
+            mobileMenuBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+            mobileLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('hidden');
+                });
+            });
+        }
+
+        // Logika Toggle Dark / Light Mode
+        const themeToggle = document.getElementById('theme-toggle');
+        const themeIcon = document.getElementById('theme-icon');
+        
+        themeToggle.addEventListener('click', () => {
+            document.documentElement.classList.toggle('dark');
+            
+            if (document.documentElement.classList.contains('dark')) {
+                themeIcon.classList.remove('fa-moon', 'text-navy');
+                themeIcon.classList.add('fa-sun', 'text-yellow-400');
+            } else {
+                themeIcon.classList.remove('fa-sun', 'text-yellow-400');
+                themeIcon.classList.add('fa-moon', 'text-navy');
+            }
+        });
+
+        // Logika Animasi Counter (Menghitung Angka) saat di-scroll
+        const counters = document.querySelectorAll('.counter-value');
+        const speed = 100; // Kecepatan menghitung (semakin rendah semakin cepat)
+        
+        const animateCounters = (entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const counter = entry.target;
+                    const target = +counter.getAttribute('data-target');
+                    const isFloat = counter.getAttribute('data-float') === 'true';
+                    const suffix = counter.getAttribute('data-suffix') || '';
+                    
+                    const updateCount = () => {
+                        const currentStr = counter.innerText.replace(suffix, '');
+                        const count = +currentStr;
+                        const inc = target / speed;
+                        
+                        if (count < target) {
+                            const nextCount = count + inc;
+                            counter.innerText = (isFloat ? nextCount.toFixed(2) : Math.ceil(nextCount)) + suffix;
+                            setTimeout(updateCount, 15);
+                        } else {
+                            counter.innerText = (isFloat ? target.toFixed(2) : target) + suffix;
+                        }
+                    };
+                    updateCount();
+                    // Stop mengamati jika animasi selesai agar tidak berulang setiap scroll
+                    observer.unobserve(counter);
+                }
+            });
+        };
+
+        const counterObserver = new IntersectionObserver(animateCounters, { threshold: 0.5 });
+        counters.forEach(c => counterObserver.observe(c));
+
+    </script>        
+</body>
+</html>
